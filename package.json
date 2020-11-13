@@ -1,0 +1,23 @@
+{
+  "name": "simple-steamgamesale-rest-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/regent0ro/simple-steamgamesale-rest-api.git",
+  "author": "y3-kang <26410322+regent0ro@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint --fix --ext .js .",
+    "test": "mocha test && yarn lint"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.0",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "underscore": "^1.11.0"
+  }
+}

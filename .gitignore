@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+#Custom
+db_command_history.txt
+archive/
+config/
