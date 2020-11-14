@@ -14,7 +14,7 @@ module.exports = {
       },
       rel_date: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       price: {
         allowNull: false,
@@ -26,11 +26,11 @@ module.exports = {
       discount_per: {
         type: Sequelize.DECIMAL(3, 2),
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
