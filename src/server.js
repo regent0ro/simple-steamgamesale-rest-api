@@ -50,9 +50,22 @@ const setupServer = () => {
       });
   });
 
-  // app.delete("/", (req, res) => {
-  //   res.send("Hello World!");
-  // });
+  app.delete("/games/:id", (req, res) => {
+    db.game
+      .findOne({ where: { id: req.params.id } })
+      .then((game) => {
+        if (game == null) {
+          throw new Error("cant find game");
+        } else {
+          game.destroy();
+          res.status(200).end();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(400).end();
+      });
+  });
 
   return app;
 };

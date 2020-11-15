@@ -12,7 +12,7 @@ describe("game_sale_list", () => {
     request = chai.request(server);
   });
 
-  xdescribe("GET /", function () {
+  describe("GET /", function () {
     it("should redirect GET /games", function (done) {
       request
         .get("/")
@@ -25,7 +25,7 @@ describe("game_sale_list", () => {
         });
     });
   });
-  xdescribe("GET /games", function () {
+  describe("GET /games", function () {
     it("should GET all game sale list data(200)", function (done) {
       request.get("/games").end(function (err, res) {
         if (err) throw err;
@@ -36,7 +36,7 @@ describe("game_sale_list", () => {
       });
     });
   });
-  xdescribe("POST /games", function () {
+  describe("POST /games", function () {
     it("should create new game sale data", function (done) {
       const new_game = {
         name: "DRAGON QUEST HEROES",
@@ -70,7 +70,7 @@ describe("game_sale_list", () => {
     it("should modify existing game data", function (done) {
       const id = 1;
       request
-        .patch("/games/2")
+        .patch(`/games/${id}`)
         .send(modified_game_info)
         .end(function (err, res) {
           if (err) throw err;
@@ -90,18 +90,19 @@ describe("game_sale_list", () => {
         });
     });
   });
-  xdescribe("DELETE /games", function () {
+  describe("DELETE /games/:id", function () {
+    const id = 5;
     it("should delete game sale list data", function (done) {
-      request.delete("/games").end(function (err, res) {
+      request.delete(`/games/${id}`).end(function (err, res) {
         if (err) throw err;
         expect(res.statusCode).to.equal(200);
         done();
       });
     });
     it("shouldn't delete NON-existing game data", function (done) {
-      request.delete("/games").end(function (err, res) {
+      request.delete("/games/999").end(function (err, res) {
         if (err) throw err;
-        expect(res.statusCode).to.equal(200);
+        expect(res.statusCode).to.equal(400);
         done();
       });
     });
