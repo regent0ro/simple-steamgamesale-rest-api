@@ -13,7 +13,7 @@ describe("game_sale_list", () => {
   });
 
   describe("GET /", function () {
-    it("should redirect GET /games", function (done) {
+    it("should redirect GET /games(301)", function (done) {
       request
         .get("/")
         .redirects(0)
@@ -31,13 +31,16 @@ describe("game_sale_list", () => {
         if (err) throw err;
         expect(res.statusCode).to.equal(200);
         expect(Array.isArray(res.body)).to.equal(true);
-        expect(res.body.length).to.equal(10);
+        expect(res.body[0]).to.have.property("name");
+        expect(res.body[0]).to.have.property("rel_date");
+        expect(res.body[0]).to.have.property("discounted_price");
+        expect(res.body[0]).to.have.property("discount_per");
         done();
       });
     });
   });
   describe("POST /games", function () {
-    it("should create new game sale data", function (done) {
+    it("should create new game sale data(201)", function (done) {
       const new_game = {
         name: "DRAGON QUEST HEROES",
         rel_date: "2017-04-25",
@@ -67,7 +70,7 @@ describe("game_sale_list", () => {
     const modified_game_info = {
       price: "1000.99",
     };
-    it("should modify existing game data", function (done) {
+    it("should modify existing game data(200)", function (done) {
       const id = 1;
       request
         .patch(`/games/${id}`)
@@ -79,7 +82,7 @@ describe("game_sale_list", () => {
           done();
         });
     });
-    it("shouldn't modify NON-existing game data", function (done) {
+    it("shouldn't modify NON-existing game data(400)", function (done) {
       request
         .patch("/games/999")
         .send(modified_game_info)
@@ -92,14 +95,14 @@ describe("game_sale_list", () => {
   });
   describe("DELETE /games/:id", function () {
     const id = 5;
-    it("should delete game sale list data", function (done) {
+    it("should delete game sale list data(200)", function (done) {
       request.delete(`/games/${id}`).end(function (err, res) {
         if (err) throw err;
         expect(res.statusCode).to.equal(200);
         done();
       });
     });
-    it("shouldn't delete NON-existing game data", function (done) {
+    it("shouldn't delete NON-existing game data(400)", function (done) {
       request.delete("/games/999").end(function (err, res) {
         if (err) throw err;
         expect(res.statusCode).to.equal(400);
