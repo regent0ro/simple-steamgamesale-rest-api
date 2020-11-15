@@ -1,17 +1,4 @@
-"use strict";
-
 module.exports = {
-  // up: async (queryInterface, Sequelize) => {
-  //   /**
-  //    * Add seed commands here.
-  //    *
-  //    * Example:
-  //    * await queryInterface.bulkInsert('People', [{
-  //    *   name: 'John Doe',
-  //    *   isBetaMember: false
-  //    * }], {});
-  //    */
-  // },
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
       "games",
@@ -23,8 +10,8 @@ module.exports = {
           price: 14.99,
           discounted_price: 14.99,
           discount_per: 0,
-          created_at: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
-          updated_at: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
+          created_at: new Date(),
+          updated_at: new Date(),
         },
         {
           id: 2,
@@ -33,20 +20,94 @@ module.exports = {
           price: 29.99,
           discounted_price: 29.99,
           discount_per: 0,
-          created_at: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
-          updated_at: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 3,
+          name: "Outlast 2",
+          rel_date: "2017-4-24",
+          price: 29.99,
+          discounted_price: 29.99,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 4,
+          name: "SMITE",
+          rel_date: "2015-9-8",
+          price: 0,
+          discounted_price: 0,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 5,
+          name: "Rocket League",
+          rel_date: "2015-7-6",
+          price: 19.99,
+          discounted_price: 19.99,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 6,
+          name: "BlazBlue Centralfiction",
+          rel_date: "2017-4-25",
+          price: 39.99,
+          discounted_price: 35.99,
+          discount_per: 10,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 7,
+          name: "Warframe",
+          rel_date: "2013-3-25",
+          price: 0,
+          discounted_price: 0,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 8,
+          name: "The Long Dark",
+          rel_date: "2014-9-22",
+          price: 19.99,
+          discounted_price: 9.99,
+          discount_per: 50.03,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 9,
+          name: "H1Z1: King of the Kill",
+          rel_date: "2016-2-17",
+          price: 19.99,
+          discounted_price: 19.99,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 10,
+          name: "NieR:Automata",
+          rel_date: "2017-3-17",
+          price: 59.99,
+          discounted_price: 59.99,
+          discount_per: 0,
+          created_at: new Date(),
+          updated_at: new Date(),
         },
       ],
       {}
     );
   },
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
     return queryInterface.bulkDelete("games", null, {});
   },
 };

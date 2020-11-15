@@ -1,4 +1,3 @@
-"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("games", {
@@ -24,7 +23,7 @@ module.exports = {
         type: Sequelize.DECIMAL(11, 2),
       },
       discount_per: {
-        type: Sequelize.DECIMAL(3, 2),
+        type: Sequelize.DECIMAL(5, 2),
       },
       created_at: {
         allowNull: false,

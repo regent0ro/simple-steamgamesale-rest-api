@@ -1,4 +1,4 @@
-"use strict";
+-"use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class game extends Model {
@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       price: DataTypes.DECIMAL(11, 2),
       discounted_price: DataTypes.DECIMAL(11, 2),
       discount_per: DataTypes.DECIMAL(3, 2),
+      createdAt: { type: DataTypes.DATE, field: "created_at" },
+      updatedAt: { type: DataTypes.DATE, field: "updated_at" },
     },
     {
       sequelize,
