@@ -4,23 +4,37 @@
   "main": "index.js",
   "repository": "https://github.com/regent0ro/simple-steamgamesale-rest-api.git",
   "author": "y3-kang <26410322+regent0ro@users.noreply.github.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
     "lint": "eslint --fix --ext .js .",
     "test": "mocha test && yarn lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "dependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
     "express": "^4.17.1",
-    "mocha": "^8.2.1",
-    "nodemon": "^2.0.6",
     "pg": "^8.5.0",
     "pg-hstore": "^2.3.3",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "underscore": "^1.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-problems": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6"
   }
 }
