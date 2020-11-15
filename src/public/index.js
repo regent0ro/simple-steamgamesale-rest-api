@@ -124,7 +124,7 @@ async function getGameList() {
 function json2Table(json) {
   const cols = Object.keys(json[0]);
   const headerRow =
-    "<th>id</th><th>ゲーム名</th><th>リリース日</th><th>価格</th><th>割引価格</th><th>割引率</th><th>セール</th>";
+    "<tr><th>id</th><th>ゲーム名</th><th>リリース日</th><th>価格</th><th>割引価格</th><th>割引率</th><th>セール</th></tr>";
   const rows = json
     .map((row) => {
       let tds = cols

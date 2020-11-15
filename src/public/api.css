@@ -1,0 +1,76 @@
+body {
+  margin: auto;
+  background-color: #1b374b;
+  color: #fff;
+}
+
+#title {
+  background-color: rgb(23, 26, 33);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#title > h1 {
+  color: rgb(190, 188, 186);
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#container {
+  width: 800px;
+  margin: 0 auto;
+}
+#container > div {
+  margin-bottom: 30px;
+  display: block;
+  border: 1px solid #dadde1;
+  border-width: 3px;
+  padding: 5px 20px;
+}
+
+#overView > a {
+  color: #fff;
+  font-size: 1.5em;
+  display: block;
+  margin: 10px;
+}
+.address,
+.request,
+.response,
+.link {
+  border-radius: 10px;
+  padding: 0 20px 10px 20px;
+  border: 1px solid #dadde1;
+  margin-bottom: 30px;
+}
+
+.address > p {
+  background-color: rgb(23, 26, 33);
+  padding: 5px;
+}
+
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 3px;
+  text-align: center;
+}
+
+.table tr:nth-child(even) {
+  background-color: rgb(23, 26, 33);
+}
+
+.table tr:hover {
+  background-color: #4caf50;
+}
+
+.table th {
+  background-color: #4caf50;
+  color: white;
+}

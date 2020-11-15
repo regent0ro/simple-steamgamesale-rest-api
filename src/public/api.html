@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Reference</title>
+    <link rel="stylesheet" type="text/css" href="api.css" />
+  </head>
+  <body>
+    <div id="title">
+      <h1>API Reference</h1>
+    </div>
+    <div id="container">
+      <div id="overView">
+        <h2>OverView</h2>
+        <a href="#GET">1.ゲームリスト取得(GET)</a>
+        <a href="#POST">2.ゲーム追加(POST) </a>
+        <a href="#PATCH">3.ゲーム情報修正(PATCH)</a>
+        <a href="#DELETE">4.ゲーム削除(DELETE) </a>
+      </div>
+      <div id="GET">
+        <h2>ゲームリスト取得(GET)</h2>
+        <div class="address">
+          <h3>アドレス</h3>
+          <p>http://localhost:{PORT}/game</p>
+        </div>
+        <div class="request">
+          <h3>リクエスト</h3>
+          <p>なし</p>
+        </div>
+        <div class="response">
+          <h3>レスポンス</h3>
+          <p>HTTPレスポンスコード：成功時は200、エラー時は400</p>
+          <p>成功時のレスポンスボディ：DBに登録されているゲームの配列</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>ゲームID</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>ゲーム名</td>
+            </tr>
+            <tr>
+              <td>rel_date</td>
+              <td>ゲームがリリースされた日</td>
+            </tr>
+            <tr>
+              <td>price</td>
+              <td>通常価格</td>
+            </tr>
+            <tr>
+              <td>discounted_price</td>
+              <td>現在の割引価格</td>
+            </tr>
+            <tr>
+              <td>discount_per</td>
+              <td>割引率</td>
+            </tr>
+          </table>
+        </div>
+        <div class="link">
+          <h3>Githubリンク</h3>
+          <p>
+            https://github.com/regent0ro/simple-steamgamesale-rest-api/blob/main/src/server.js
+          </p>
+        </div>
+      </div>
+      <div id="POST">
+        <h2>ゲーム追加(POST)</h2>
+        <div class="address">
+          <h3>アドレス</h3>
+          <p>http://localhost:{PORT}/game</p>
+        </div>
+        <div class="request">
+          <h3>リクエスト</h3>
+          <p>登録に必要な情報</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>ゲーム名(必須)</td>
+            </tr>
+            <tr>
+              <td>rel_date</td>
+              <td>ゲームがリリースされた日(必須)</td>
+            </tr>
+            <tr>
+              <td>price</td>
+              <td>通常価格(必須)</td>
+            </tr>
+            <tr>
+              <td>discounted_price</td>
+              <td>現在の割引価格(必須)</td>
+            </tr>
+            <tr>
+              <td>discount_per</td>
+              <td>割引率</td>
+            </tr>
+          </table>
+        </div>
+        <div class="response">
+          <h3>レスポンス</h3>
+          <p>HTTPレスポンスコード：成功時は201、エラー時は400</p>
+          <p>成功時のレスポンスボディ：IDを含めたDBに登録されたゲームの情報</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>ゲームID</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>ゲーム名</td>
+            </tr>
+            <tr>
+              <td>rel_date</td>
+              <td>ゲームがリリースされた日</td>
+            </tr>
+            <tr>
+              <td>price</td>
+              <td>通常価格</td>
+            </tr>
+            <tr>
+              <td>discounted_price</td>
+              <td>現在の割引価格</td>
+            </tr>
+            <tr>
+              <td>discount_per</td>
+              <td>割引率</td>
+            </tr>
+          </table>
+        </div>
+        <div class="link">
+          <h3>Githubリンク</h3>
+          <p>
+            https://github.com/regent0ro/simple-steamgamesale-rest-api/blob/main/src/server.js
+          </p>
+        </div>
+      </div>
+      <div id="PATCH">
+        <h2>ゲーム情報修正(PATCH)</h2>
+        <div class="address">
+          <h3>アドレス</h3>
+          <p>http://localhost:{PORT}/game/:id</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>ゲームID</td>
+            </tr>
+          </table>
+        </div>
+        <div class="request">
+          <h3>リクエスト</h3>
+          <p>修正したい情報</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>ゲームID(必須)</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>ゲーム名</td>
+            </tr>
+            <tr>
+              <td>rel_date</td>
+              <td>ゲームがリリースされた日</td>
+            </tr>
+            <tr>
+              <td>price</td>
+              <td>通常価格</td>
+            </tr>
+            <tr>
+              <td>discounted_price</td>
+              <td>現在の割引価格</td>
+            </tr>
+            <tr>
+              <td>discount_per</td>
+              <td>割引率</td>
+            </tr>
+          </table>
+        </div>
+        <div class="response">
+          <h3>レスポンス</h3>
+          <p>HTTPレスポンスコード：成功時は200、エラー時は400</p>
+          <p>成功時のレスポンスボディ：修正したゲームID</p>
+        </div>
+        <div class="link">
+          <h3>Githubリンク</h3>
+          <p>
+            https://github.com/regent0ro/simple-steamgamesale-rest-api/blob/main/src/server.js
+          </p>
+        </div>
+      </div>
+      <div id="DELETE">
+        <h2>ゲーム削除(DELETE)</h2>
+        <div class="address">
+          <h3>アドレス</h3>
+          <p>http://localhost:{PORT}/game/:id</p>
+          <table class="table">
+            <tr>
+              <th>要素</th>
+              <th>説明</th>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>ゲームID</td>
+            </tr>
+          </table>
+        </div>
+        <div class="request">
+          <h3>リクエスト</h3>
+          <p>なし</p>
+        </div>
+        <div class="response">
+          <h3>レスポンス</h3>
+          <p>HTTPレスポンスコード：成功時は200、エラー時は400</p>
+          <p>成功時のレスポンスボディ：なし</p>
+        </div>
+        <div class="link">
+          <h3>Githubリンク</h3>
+          <p>
+            https://github.com/regent0ro/simple-steamgamesale-rest-api/blob/main/src/server.js
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
