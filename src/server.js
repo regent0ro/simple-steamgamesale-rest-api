@@ -1,10 +1,13 @@
 const express = require("express");
 const _ = require("underscore");
+const path = require("path");
 const db = require("../models/index");
 
 const setupServer = () => {
   const app = express();
   app.use(express.json());
+
+  app.use(express.static(path.join(__dirname, "public")));
 
   app.get("/", (req, res) => {
     res.status(301).redirect(301, "/games");

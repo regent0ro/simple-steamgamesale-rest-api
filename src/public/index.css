@@ -1,0 +1,76 @@
+body {
+  margin: auto;
+  background-color: #1b374b;
+  color: #fff;
+}
+
+#title {
+  background-color: rgb(23, 26, 33);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#title > h1 {
+  color: rgb(190, 188, 186);
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#description {
+  margin-bottom: 30px;
+  display: block;
+  border: 1px solid #dadde1;
+  border-width: 3px;
+  padding: 5px 20px;
+}
+#description > p > strong {
+  font-size: 20px;
+}
+#demoAPI {
+  margin-bottom: 30px;
+  display: block;
+  border: 1px solid #dadde1;
+  border-width: 3px;
+  padding: 5px 20px;
+}
+#demoAPI > div {
+  border-radius: 10px;
+  padding: 0 20px 20px 20px;
+  border: 1px solid #dadde1;
+  margin-bottom: 30px;
+}
+#demoAPI > div > form > div {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 0;
+  display: block;
+}
+#demoAPI > div > form > div > input {
+  padding: 5px;
+  font-size: 15px;
+}
+
+#demoAPI > div > form > button {
+  width: 50%;
+  background-color: #4267b2;
+  color: #fff;
+  border: 1px solid;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 0;
+  display: block;
+  margin-top: 10px;
+}
+
+#link {
+  margin-bottom: 30px;
+  display: block;
+  border: 1px solid #dadde1;
+  border-width: 3px;
+  padding: 5px 20px;
+}

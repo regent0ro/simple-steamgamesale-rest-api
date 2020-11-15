@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>simple steam game sale REST API DEMO</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div id="title">
+      <h1>STEAM game sale DEMO</h1>
+    </div>
+    <div id="container">
+      <div id="description">
+        <h2>説明</h2>
+        <p>
+          STEAMのゲームセール情報を元に簡単なREST
+          APIを試すことができるデモです。各API説明は<strong>こちら</strong>。
+        </p>
+      </div>
+
+      <div id="demoAPI">
+        <h2>触ってみる</h2>
+        <div id="GET">
+          <h3>GET(現在のゲームリストを取得)</h3>
+          <div id="gameList"></div>
+        </div>
+        <div id="POST">
+          <h3>POST(新しいゲームを追加、追加後GETのリストが更新される)</h3>
+          <form>
+            <div>
+              <label for="name">ゲーム名: </label>
+              <input type="text" id="name" placeholder="ゲーム名を入力" />
+            </div>
+            <div>
+              <label for="rel_date">リリース日: </label>
+              <input type="text" id="rel_date" placeholder="リリース日を入力" />
+            </div>
+            <div>
+              <label for="price">基本価格: </label>
+              <input type="text" id="price" placeholder="基本価格を入力" />
+            </div>
+            <div>
+              <label for="discounted_price">割引価格: </label>
+              <input
+                type="text"
+                id="discounted_price"
+                placeholder="割引価格を入力"
+              />
+            </div>
+            <button type="button" id="submitButton">追加</button>
+          </form>
+        </div>
+        <div id="PATCH">
+          <h3>
+            PATCH(idを指定してデータを修正、追加後GETのリストが更新される)
+          </h3>
+          <form>
+            <div>
+              <label for="gameid">ゲームID: </label>
+              <input type="text" id="gameid" placeholder="gameIDを入力" />
+            </div>
+            <div>
+              <label for="name">ゲーム名: </label>
+              <input type="text" id="name" placeholder="ゲーム名を入力" />
+            </div>
+            <div>
+              <label for="rel_date">リリース日: </label>
+              <input type="text" id="rel_date" placeholder="リリース日を入力" />
+            </div>
+            <div>
+              <label for="price">基本価格: </label>
+              <input type="text" id="price" placeholder="基本価格を入力" />
+            </div>
+            <div>
+              <label for="discounted_price">割引価格: </label>
+              <input
+                type="text"
+                id="discounted_price"
+                placeholder="割引価格を入力"
+              />
+            </div>
+            <button type="button" id="submitButton">修正</button>
+          </form>
+        </div>
+        <div id="DELETE">
+          <h3>DELETE(ゲームの削除、追加後GETのリストが更新される)</h3>
+          <form>
+            <div>
+              <label for="gameid">削除するゲームID: </label>
+              <input type="text" id="gameid" placeholder="gameIDを入力" />
+            </div>
+
+            <button type="button" id="submitButton">削除</button>
+          </form>
+        </div>
+      </div>
+      <div id="link">
+        <h2>リンク</h2>
+        <dl>
+          <dt>コード(gitHub):</dt>
+          <dd>https://github.com/regent0ro/simple-steamgamesale-rest-api</dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>
