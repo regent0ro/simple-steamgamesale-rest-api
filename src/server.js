@@ -1,5 +1,5 @@
 const express = require("express");
-//const _ = require("underscore");
+const _ = require("underscore");
 const db = require("../models/index");
 
 const setupServer = () => {
@@ -34,9 +34,21 @@ const setupServer = () => {
       });
   });
 
-  // app.patch("/", (req, res) => {
-  //   res.send("Hello World!");
-  // });
+  app.patch("/games/:id", (req, res) => {
+    db.game
+      .update(req.body, { where: { id: req.params.id } })
+      .then((db_res) => {
+        if (_.isEqual(db_res, [0])) {
+          throw new Error("cant find game");
+        } else {
+          res.status(200).send(db_res);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(400).end();
+      });
+  });
 
   // app.delete("/", (req, res) => {
   //   res.send("Hello World!");

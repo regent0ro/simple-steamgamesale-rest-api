@@ -12,7 +12,7 @@ describe("game_sale_list", () => {
     request = chai.request(server);
   });
 
-  describe("GET /", function () {
+  xdescribe("GET /", function () {
     it("should redirect GET /games", function (done) {
       request
         .get("/")
@@ -25,7 +25,7 @@ describe("game_sale_list", () => {
         });
     });
   });
-  describe("GET /games", function () {
+  xdescribe("GET /games", function () {
     it("should GET all game sale list data(200)", function (done) {
       request.get("/games").end(function (err, res) {
         if (err) throw err;
@@ -36,7 +36,7 @@ describe("game_sale_list", () => {
       });
     });
   });
-  describe("POST /games", function () {
+  xdescribe("POST /games", function () {
     it("should create new game sale data", function (done) {
       const new_game = {
         name: "DRAGON QUEST HEROES",
@@ -63,20 +63,31 @@ describe("game_sale_list", () => {
         });
     });
   });
-  xdescribe("PATCH /games", function () {
+  describe("PATCH /games/:id", function () {
+    const modified_game_info = {
+      price: "1000.99",
+    };
     it("should modify existing game data", function (done) {
-      request.patch("/games").end(function (err, res) {
-        if (err) throw err;
-        expect(res.statusCode).to.equal(200);
-        done();
-      });
+      const id = 1;
+      request
+        .patch("/games/2")
+        .send(modified_game_info)
+        .end(function (err, res) {
+          if (err) throw err;
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.deep.equal([id]);
+          done();
+        });
     });
     it("shouldn't modify NON-existing game data", function (done) {
-      request.patch("/games").end(function (err, res) {
-        if (err) throw err;
-        expect(res.statusCode).to.equal(201);
-        done();
-      });
+      request
+        .patch("/games/999")
+        .send(modified_game_info)
+        .end(function (err, res) {
+          if (err) throw err;
+          expect(res.statusCode).to.equal(400);
+          done();
+        });
     });
   });
   xdescribe("DELETE /games", function () {
