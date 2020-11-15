@@ -13,18 +13,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   game.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       name: DataTypes.STRING,
-      rel_date: DataTypes.DATE,
+      rel_date: DataTypes.DATEONLY,
       price: DataTypes.DECIMAL(11, 2),
       discounted_price: DataTypes.DECIMAL(11, 2),
       discount_per: DataTypes.DECIMAL(3, 2),
-      createdAt: { type: DataTypes.DATE, field: "created_at" },
-      updatedAt: { type: DataTypes.DATE, field: "updated_at" },
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
     },
     {
       sequelize,

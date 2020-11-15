@@ -25,11 +25,11 @@ module.exports = {
       discount_per: {
         type: Sequelize.DECIMAL(5, 2),
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },

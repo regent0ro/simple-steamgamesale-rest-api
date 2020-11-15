@@ -22,7 +22,17 @@ const setupServer = () => {
       });
   });
 
-  // app.post("/", function (req, res) {});
+  app.post("/games", function (req, res) {
+    db.game
+      .create(req.body)
+      .then((db_res) => {
+        res.status(201).send(db_res);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(400).end();
+      });
+  });
 
   // app.patch("/", (req, res) => {
   //   res.send("Hello World!");

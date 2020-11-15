@@ -1,10 +1,11 @@
-const { expect /*, assert*/ } = require("chai");
+const { expect, assert } = require("chai");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 const { setupServer } = require("../src/server");
 
 const server = setupServer();
+
 describe("game_sale_list", () => {
   let request;
   beforeEach(() => {
@@ -35,13 +36,31 @@ describe("game_sale_list", () => {
       });
     });
   });
-  xdescribe("POST /games", function () {
+  describe("POST /games", function () {
     it("should create new game sale data", function (done) {
-      request.post("/games").end(function (err, res) {
-        if (err) throw err;
-        expect(res.statusCode).to.equal(201);
-        done();
-      });
+      const new_game = {
+        name: "DRAGON QUEST HEROES",
+        rel_date: "2017-04-25",
+        price: "59.99",
+        discounted_price: "39.99",
+        discount_per: "33.33",
+      };
+      request
+        .post("/games")
+        .send(new_game)
+        .end(function (err, res) {
+          if (err) throw err;
+          expect(res.statusCode).to.equal(201);
+          assert.isObject(res.body);
+
+          const actual = res.body;
+          delete actual.id;
+          delete actual.createdAt;
+          delete actual.updatedAt;
+
+          expect(res.body).to.deep.equal(new_game);
+          done();
+        });
     });
   });
   xdescribe("PATCH /games", function () {
