@@ -67,6 +67,39 @@ body {
   margin-top: 10px;
 }
 
+#gameList {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#gameList td,
+#gameList th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#gameList tr:nth-child(even) {
+  background-color: rgb(23, 26, 33);
+}
+
+#gameList tr:hover {
+  background-color: #4caf50;
+}
+
+#gameList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.sale_mark {
+  color: Khaki;
+  font-weight: bolder;
+}
+
 #link {
   margin-bottom: 30px;
   display: block;

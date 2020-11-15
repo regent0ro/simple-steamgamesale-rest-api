@@ -15,6 +15,7 @@
           STEAMのゲームセール情報を元に簡単なREST
           APIを試すことができるデモです。各API説明は<strong>こちら</strong>。
         </p>
+        <p>また、Chromeブラウザを基準に作成されました。</p>
       </div>
 
       <div id="demoAPI">
@@ -32,31 +33,37 @@
             </div>
             <div>
               <label for="rel_date">リリース日: </label>
-              <input type="text" id="rel_date" placeholder="リリース日を入力" />
+              <input type="date" id="rel_date" placeholder="リリース日を入力" />
             </div>
             <div>
               <label for="price">基本価格: </label>
-              <input type="text" id="price" placeholder="基本価格を入力" />
+              <input
+                type="number"
+                id="price"
+                min="0"
+                placeholder="基本価格を入力"
+              />
             </div>
             <div>
               <label for="discounted_price">割引価格: </label>
               <input
-                type="text"
+                type="number"
                 id="discounted_price"
+                min="0"
                 placeholder="割引価格を入力"
               />
             </div>
-            <button type="button" id="submitButton">追加</button>
+            <button type="button" id="POSTButton">追加</button>
           </form>
         </div>
         <div id="PATCH">
           <h3>
-            PATCH(idを指定してデータを修正、追加後GETのリストが更新される)
+            PATCH(idを指定して変更データを入力、追加後GETのリストが更新される)
           </h3>
           <form>
             <div>
-              <label for="gameid">ゲームID: </label>
-              <input type="text" id="gameid" placeholder="gameIDを入力" />
+              <label for="gameid">ゲームID(必須): </label>
+              <input type="number" id="gameid" placeholder="gameIDを入力" />
             </div>
             <div>
               <label for="name">ゲーム名: </label>
@@ -64,21 +71,29 @@
             </div>
             <div>
               <label for="rel_date">リリース日: </label>
-              <input type="text" id="rel_date" placeholder="リリース日を入力" />
+              <input type="date" id="rel_date" placeholder="リリース日を入力" />
             </div>
             <div>
               <label for="price">基本価格: </label>
-              <input type="text" id="price" placeholder="基本価格を入力" />
+              <input type="number" id="price" placeholder="基本価格を入力" />
             </div>
             <div>
               <label for="discounted_price">割引価格: </label>
               <input
-                type="text"
+                type="number"
                 id="discounted_price"
                 placeholder="割引価格を入力"
               />
             </div>
-            <button type="button" id="submitButton">修正</button>
+            <div>
+              <label for="discount_per">割引率: </label>
+              <input
+                type="number"
+                id="discount_per"
+                placeholder="割引率を入力"
+              />
+            </div>
+            <button type="button" id="PATCHButton">修正</button>
           </form>
         </div>
         <div id="DELETE">
@@ -86,10 +101,10 @@
           <form>
             <div>
               <label for="gameid">削除するゲームID: </label>
-              <input type="text" id="gameid" placeholder="gameIDを入力" />
+              <input type="number" id="gameid" placeholder="gameIDを入力" />
             </div>
 
-            <button type="button" id="submitButton">削除</button>
+            <button type="button" id="DELETEButton">削除</button>
           </form>
         </div>
       </div>
@@ -101,5 +116,6 @@
         </dl>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
