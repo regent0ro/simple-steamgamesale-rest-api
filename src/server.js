@@ -1,39 +1,36 @@
 const express = require("express");
-const _ = require("underscore");
+//const _ = require("underscore");
 const db = require("../models/index");
 
 const setupServer = () => {
-  /**
-   * Create, set up and return your express server, split things into separate files if it becomes too long!
-   */
   const app = express();
   app.use(express.json());
 
   app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.status(301).redirect(301, "/games");
   });
 
-  app.post("/create", function (req, res) {
+  app.get("/games", (req, res) => {
     db.game
-      .create({
-        name: "Counter-Strike: Global Offensive",
-        rel_date: "2012-08-12",
-        price: "14.99",
-        discounted_price: "14.99",
-        discount_per: "0",
+      .findAll()
+      .then((games) => {
+        res.send(games);
       })
-      .then(() => {
-        res.status(201).send("Data Created.");
+      .catch((err) => {
+        console.error(err);
+        res.status(400).end();
       });
   });
 
-  app.patch("/", (req, res) => {
-    res.send("Hello World!");
-  });
+  // app.post("/", function (req, res) {});
 
-  app.delete("/", (req, res) => {
-    res.send("Hello World!");
-  });
+  // app.patch("/", (req, res) => {
+  //   res.send("Hello World!");
+  // });
+
+  // app.delete("/", (req, res) => {
+  //   res.send("Hello World!");
+  // });
 
   return app;
 };
