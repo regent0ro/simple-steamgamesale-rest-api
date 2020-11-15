@@ -77,12 +77,13 @@
 ## 実装した REST API について
 
 以下の API を実装しています。リクエストなどの詳細情報は[別途の html ファイル](https://github.com/regent0ro/simple-steamgamesale-rest-api/blob/main/src/public/api.html)に書きました。
+
 | URL | Method | 説明 |
-|-|-|-|-|-|
-|/game | GET | すべてのゲームリストを取得します |
-|/game | POST|　新しいゲーム情報を追加します |
-|/game/:id | PATCH | 指定 Id のゲームの情報を修正します |
-|/game/:id | DETELE | 指定 Id のゲームを削除します|
+|:---:|:---:|:---:|
+|`/game` |GET |すべてのゲームリストを取得します |
+|`/game` |POST|新しいゲーム情報を追加します |
+|`/game/:id` |PATCH |指定 Id のゲームの情報を修正します |
+|`/game/:id` |DETELE |指定 Id のゲームを削除します|
 
 ## デモ
 
