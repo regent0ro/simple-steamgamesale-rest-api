@@ -71,7 +71,7 @@
    yarn start
    ```
 6. その他
-   - `nodemon`がふくまれているもで`yarn dev`で実行すると、更新を検知してサーバを再起動してくれます。
+   - `nodemon`が含まれているので`yarn dev`で実行すると、更新を検知してサーバを再起動してくれます。
    - `yarn test`より`chai`のテストと`eslint`が実行されます。
 
 ## 実装した REST API について
