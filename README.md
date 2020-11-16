@@ -63,12 +63,12 @@
 4. (必要な場合)Seed を実行し、ダミーデータをテーブルに挿入します
 
    ```bash
-   yarn sequelize db:migrate
+   yarn sequelize db:seed:all --debug
    ```
 
 5. サーバを実行します
    ```bash
-   yarn sequelize db:seed:all --debug
+   yarn start
    ```
 6. その他
    - `nodemon`がふくまれているもで`yarn dev`で実行すると、更新を検知してサーバを再起動してくれます。
